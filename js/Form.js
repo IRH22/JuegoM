@@ -26,12 +26,14 @@ class Form{
             this.inputN.hide();
             this.botonP.hide();
             // guardar en DB
-            var name = this.inputN.value();
+            player.name = this.inputN.value();
             playerCount +=1;
+            player.index = playerCount
             player.updateCount(playerCount);
-            player.updateName(name);
-            this.saludos.html('hola ' + name);
+            player.updateName();
+            this.saludos.html('hola ' + player.name);
             this.saludos.position(630, 200);
+            
         })
         
 
