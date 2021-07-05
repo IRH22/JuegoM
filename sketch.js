@@ -17,6 +17,15 @@ function draw(){
    // form = new Form();
    // form.display();
 
+   if(playerCount === 2){
+       game.updateState(1);
+   }
+
+   if(gameState === 1){
+       clear();
+       game.play();
+   }
+
 
     drawSprites();
 }

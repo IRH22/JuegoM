@@ -1,32 +1,37 @@
 class Form{
     constructor(){
+        this.titulo = createElement('h2');
+        this.inputN = createInput("Nombre");
+        this. botonP = createButton("Play");
+        this.saludos = createElement('h3')
 
     }
+    hide(){
+        this.titulo.hide();
+        this.inputN.hide();
+        this.botonP.hide();
+        this.saludos.hide();
+    }
 
-    display(){
-        var titulo = createElement('h2');
-        titulo.html('Carera De Coches');
-        titulo.position(560, 90);
+    display(){ 
+        this.titulo.html('Carera De Coches');
+        this.titulo.position(560, 90);
 
-        var inputN = createInput("Nombre");
-        inputN.position(570, 140);
+        this.inputN.position(570, 140);
 
-        var botonP = createButton("Play");
-        botonP.position(630, 200); 
+        this.botonP.position(630, 200); 
 
-        var saludos = createElement('h3')
-
-        botonP.mousePressed(function(){
+        this.botonP.mousePressed(()=>{
             //lo que pasa si se aprieta}
-            inputN.hide();
-            botonP.hide();
+            this.inputN.hide();
+            this.botonP.hide();
             // guardar en DB
-            var name = inputN.value();
+            var name = this.inputN.value();
             playerCount +=1;
             player.updateCount(playerCount);
             player.updateName(name);
-            saludos.html('hola ' + name);
-            saludos.position(630, 200);
+            this.saludos.html('hola ' + name);
+            this.saludos.position(630, 200);
         })
         
 
