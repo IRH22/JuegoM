@@ -98,6 +98,7 @@ class Game{
 
         if( player.distance >= 3050){
             gameState = 2;
+            console.log(player.name)
             
         }
 
