@@ -3,7 +3,8 @@ class Form{
         this.titulo = createElement('h2');
         this.inputN = createInput("Nombre");
         this. botonP = createButton("Play");
-        this.saludos = createElement('h3')
+        this.saludos = createElement('h3');
+        this.botonR = createButton("Reiniciar")
 
     }
     hide(){
@@ -14,12 +15,14 @@ class Form{
     }
 
     display(){ 
-        this.titulo.html('Carera De Coches');
-        this.titulo.position(560, 90);
+        this.titulo.html('Carrera De Coches');
+        this.titulo.position(560, 50);
 
-        this.inputN.position(570, 140);
+        this.inputN.position(600, 180);
 
-        this.botonP.position(630, 200); 
+        this.botonP.position(690, 230); 
+
+        this.botonR.position(90, 90);
 
         this.botonP.mousePressed(()=>{
             //lo que pasa si se aprieta}
@@ -36,6 +39,12 @@ class Form{
             
         })
         
+        this.botonR.mousePressed(()=>{
+            player.updateCount(0);
+            game.updateState(0);
+            Player.delete();
+
+        })
 
     }
 }

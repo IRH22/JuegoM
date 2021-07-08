@@ -28,15 +28,15 @@ class Game{
             form.display();
         }
         
-        car1 = createSprite( 200, 400, 20, 20);
-        car2 = createSprite( 350, 430, 20, 20);
-        car3 = createSprite( 530, 500, 20, 20);
-        car4 = createSprite( 500, 530, 20, 20);
+        car1 = createSprite( 410, 400, 20, 20);
+        car2 = createSprite( 550, 430, 20, 20);
+        //car3 = createSprite( 530, 500, 20, 20);
+        //car4 = createSprite( 500, 530, 20, 20);
 
         car1.addImage("1", carI1);
         car2.addImage("2", carI2);
-        car3.addImage("3", carI3);
-        car4.addImage("4", carI4);
+        //car3.addImage("3", carI3);
+        //car4.addImage("4", carI4);
 
         cars = [car1, car2];
         console.log(cars);
@@ -51,7 +51,13 @@ class Game{
         Player.getPlayerInfo();
         var displayPos = 150;
         if(allplayers != undefined){
+            background("#6e471b");
+            image(trackI, 0, -displayHeight*3, displayWidth, displayHeight*10)
             textSize(25);
+
+            var index = 0;
+            var x = 195;
+            var y;
 
             for(var plr in allplayers){
                 if (plr === "player" + player.index)
@@ -61,6 +67,21 @@ class Game{
 
                 text(allplayers [plr].name + allplayers [plr].distance, 200, displayPos)
                 displayPos += 30;
+
+                index += 1;
+                x += 225;
+                y =displayHeight - allplayers [plr].distance;
+
+                cars[index-1].x = x;
+                cars[index-1].y = y;
+
+                if(index === player.index){
+                    stroke(7)
+                    fill("#18adb5")
+                    ellipse(x, y, 70, 70);
+                    camera.position.x = displayWidth/2;
+                    camera.position.y = cars[index-1].y;
+                }
             }
 
         }
@@ -70,7 +91,16 @@ class Game{
             player.updateName();           
         }
 
+        if( player.distance >= 3050){
+            gameState = 2;
+            
+        }
 
     }
 
+
+    end(){
+        console.log("fin")
+        //el coche se repite
+    }
 }

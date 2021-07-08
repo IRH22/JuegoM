@@ -25,6 +25,12 @@ class Player{
 
     }
 
+    static delete(){
+        database.ref('/').update({
+            players : null
+        })
+    }
+
     static getPlayerInfo(){
         var playerinfoRef = database.ref('players')
         playerinfoRef.on('value', (data)=>{

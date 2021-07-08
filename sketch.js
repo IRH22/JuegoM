@@ -6,6 +6,7 @@ var allplayers;
 var carI1, carI2, carI3, carI4, car1, car2, car3, car4;
 var piso;
 var cars = [];
+var trackI, track;
 
 function preload(){
     carI1 = loadImage("../images/car1.png");
@@ -13,7 +14,9 @@ function preload(){
     carI3 = loadImage("../images/car3.png");
     carI4 = loadImage("../images/car4.png");
 
-    piso = loadImage("../images/ground.png")
+    piso = loadImage("../images/ground.png");
+
+    trackI = loadImage("../images/track.jpg");
 }
 
 
@@ -24,6 +27,7 @@ function setup(){
     game.getState();
     game.start();
 
+    canvas = createCanvas(displayWidth-25, displayHeight-178);
     
 }
 
@@ -40,6 +44,10 @@ function draw(){
        game.play();
    }
 
+   if(gameState === 2){
+       game.end();
+       //ajustar que no se vea doble
+   }
 
     drawSprites();
 }
