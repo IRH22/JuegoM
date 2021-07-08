@@ -91,7 +91,7 @@ class Game{
 
         }
 
-        if(keyIsDown(UP_ARROW)&& player.index != null){
+        if(keyIsDown(UP_ARROW)&& player.index != null && player.distance<3080){
             player.distance += 50;
             player.updateName();           
         }
