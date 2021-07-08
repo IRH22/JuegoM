@@ -19,17 +19,22 @@ class Game{
         })
     }
 
-    start(){
+    async start(){
         if(gameState === 0){
             //necesita ser asincrone
             player = new Player();
+            var playerCountRef = await database.ref('playerCount').once('value'); 
+            if(playerCountRef.exists()){ 
+                playerCount=playerCountRef.val(); 
+                player.getCount; 
+            }
             player.getCount();
             form = new Form();
             form.display();
         }
-        
-        car1 = createSprite( 410, 400, 20, 20);
-        car2 = createSprite( 550, 430, 20, 20);
+        //que no se vean desde el inicio
+        car1 = createSprite( 410, 700, 20, 20);
+        car2 = createSprite( 550, 730, 20, 20);
         //car3 = createSprite( 530, 500, 20, 20);
         //car4 = createSprite( 500, 530, 20, 20);
 
@@ -39,7 +44,7 @@ class Game{
         //car4.addImage("4", carI4);
 
         cars = [car1, car2];
-        console.log(cars);
+       
 
     }
 
@@ -101,6 +106,7 @@ class Game{
 
     end(){
         console.log("fin")
+
         //el coche se repite
     }
 }

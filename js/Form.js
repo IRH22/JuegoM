@@ -5,6 +5,7 @@ class Form{
         this. botonP = createButton("Play");
         this.saludos = createElement('h3');
         this.botonR = createButton("Reiniciar")
+        this.botonR.hide();
 
     }
     hide(){
@@ -36,6 +37,7 @@ class Form{
             player.updateName();
             this.saludos.html('hola ' + player.name);
             this.saludos.position(630, 200);
+            this.botonR.show();
             
         })
         
@@ -43,6 +45,7 @@ class Form{
             player.updateCount(0);
             game.updateState(0);
             Player.delete();
+            window.location.reload();
 
         })
 
